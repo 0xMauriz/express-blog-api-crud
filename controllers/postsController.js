@@ -1,14 +1,10 @@
 const posts = require("../data/posts.js");
 
 function index(req, res) {
-    res.send('Lista dei post: ');
+    res.json(posts);
 }
 
 function show(req, res) {
-
-}
-
-function showPost(req, res) {
 
     const id = Number(req.params.id)
     const singlePost = posts.find((post) => post.id === id);
@@ -40,11 +36,10 @@ function destroy(req, res) {
         })
     }
 
-    posts.splice(posts.indexOf(post), id)
+    res.status(204)
 
-
-    res.send(`Cancello post ${id}`)
+    posts.splice(posts.indexOf(singlePost), id)
 
 }
 
-module.exports = { index, show, showPost, store, update, destroy }
+module.exports = { index, show, store, update, destroy }
