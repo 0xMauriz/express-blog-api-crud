@@ -36,9 +36,11 @@ function destroy(req, res) {
         })
     }
 
-    res.status(204)
-
     posts.splice(posts.indexOf(singlePost), id)
+
+    res.sendStatus(204)
+
+    console.log(posts);
 
 }
 
