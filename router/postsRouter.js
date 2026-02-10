@@ -7,9 +7,7 @@ const postsController = require('../controllers/postsController.js')
 
 router.get('/', postsController.index)
 
-router.post('/', (req, res) => {
-    res.send('Creazione nuovo post');
-})
+router.post('/', postsController.store)
 
 router.get('/:id', postsController.show)
 
